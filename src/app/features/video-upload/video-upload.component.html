@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center h-100">
+    <div class="d-flex flex-column align-items-center mx-auto">
+        <h4>Price Promotion</h4>
+        <h6>Upload video</h6>
+        <div class="input-group mt-4 w-auto file-control">
+            <input type="text" class="form-control border-0 text-dark" 
+            [value]="selectedFile?.name"
+            placeholder="Choose file" (click)="fileUpload.click()">
+            <div class="input-group-append">
+            <button type="button" class="input-group-text border-0 text-dark" 
+            (click)="fileUpload.click()">Browse</button>
+            </div>
+        
+            <input #fileUpload type="file" class="d-none" 
+            (change)="onFileChange(fileUpload.files)"
+            accept="video/mp4,video/x-m4v,video/*">
+        </div>
+        
+        <button type="button" 
+        (click)="uploadVideo()"
+        class="btn btn-secondary px-5 mt-5"
+        >Upload</button>
+    </div>
+</div>

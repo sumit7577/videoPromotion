@@ -1,0 +1,26 @@
+@import '../../../../assets/variables.scss';
+
+.tag{
+    display: inline-block;
+    width: 25%;
+    padding: 0.5rem;
+    cursor: pointer;
+    &.selected{
+        background-color: $black-color;
+    }
+}
+
+
+.checkbox-container{
+    padding-right: 0.5rem;
+    &:last-child{
+        padding-right: 0;
+    }
+}
+
+.medium-font{
+    font-size: 0.9rem;
+    label{
+        font-size: 1rem;
+    }
+}

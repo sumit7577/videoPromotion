@@ -1,0 +1,13 @@
+<div class="d-flex flex-column h-100">
+    <nav *ngIf="isLoggedIn" class="d-flex">
+        <button
+        (click)="onLogout()"
+        class="ml-auto btn btn-secondary">Logout</button>
+    </nav>
+    
+    <div class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </div>
+    
+    <app-loader [show]="isLoading"></app-loader>
+</div>

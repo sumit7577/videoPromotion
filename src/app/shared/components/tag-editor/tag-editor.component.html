@@ -1,0 +1,39 @@
+<div *ngIf="tags" class="tags">
+    <h6 *ngIf="title">{{title}}</h6>
+    <div *ngFor="let tag of tags; trackBy: trackByName" class="tag" 
+    [ngClass]="{'selected': tag.name===selectedTag?.name}"
+    (click)="selectTag(tag)">
+        <app-tag [tag]="tag"></app-tag>
+    </div>
+    <div class="d-flex flex-wrap mt-4 medium-font">
+        <div class="col-12 col-lg-6 p-2" *ngIf="selectedTag?.topItem">
+            <label>First Price</label>
+            <div class="d-flex flex-nowrap">
+                <label class="checkbox-container" 
+                *ngFor="let key of CurrencyArray">
+                    {{ key + (key==='None' ? '' : ' (' + getCurrencyEnumValue(key) + ')') }}
+                    <input type="radio" [name]="creationTimeStamp + 'firstItemPrice'" 
+                    [value]="getCurrencyEnumValue(key)"
+                    [(ngModel)]="selectedTag.topItem.currency">
+                    <span class="check-mark"></span>
+                </label>
+            </div>
+            <input type="text" class="form-control mt-2"
+            [(ngModel)]="selectedTag.topItem.price">
+        </div>
+        <div class="col-12 col-lg-6 p-2" *ngIf="selectedTag?.bottomItem">
+            <label>Second Price</label>
+            <div class="d-flex flex-nowrap">
+                <label class="checkbox-container" 
+                *ngFor="let key of CurrencyArray">
+                    {{ key + (key==='None' ? '' : ' (' + getCurrencyEnumValue(key) + ')') }}
+                    <input type="radio" [name]="creationTimeStamp + 'secondItemPrice'" 
+                    [value]="getCurrencyEnumValue(key)"
+                    [(ngModel)]="selectedTag.bottomItem.currency">
+                    <span class="check-mark"></span>
+                </label>
+            </div>
+            <input type="text" class="form-control mt-2" [(ngModel)]="selectedTag.bottomItem.price">
+        </div>
+    </div>
+</div>

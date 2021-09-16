@@ -1,0 +1,16 @@
+.input-cont{
+    background-color: rgb(212,214,218);
+    position: relative;
+    .form-control{
+        // border-bottom-right-radius: 0;
+        // border-top-right-radius: 0;
+        background-color: transparent;
+        padding-right: 1.5rem;
+    }
+    .input-append{
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

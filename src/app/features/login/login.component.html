@@ -1,0 +1,43 @@
+<div class="d-flex align-items-center h-100">
+    <div class="d-flex flex-column align-items-center mx-auto">
+        <h4>Price Promotion</h4>
+        <h6 class="mt-4">Sign In</h6>
+        <small>Enter your details to login to your account:</small>
+        <form (ngSubmit)="login()" #loginForm="ngForm" class="w-100">
+            <div class="inputs mt-4">
+                <div class="input-cont w-auto">
+                    <input type="email" class="form-control border-0 text-dark" 
+                    required [(ngModel)]="loginObj.username" name="username"
+                    #username="ngModel" placeholder="Username">
+                    <span *ngIf="username.dirty" 
+                    [ngClass]="{'text-success': username.valid, 'text-danger': username.invalid}"
+                        class="material-icons input-append">
+                        {{ username.valid ? 'check' : 'info' }}
+                    </span>
+                </div>
+                <div *ngIf="username.dirty && username.invalid" class="text-danger">
+                    <small>User name is required.</small>
+                </div>
+                <div class="input-cont mt-3 w-auto">
+                    <input type="password" class="form-control border-0 text-dark" 
+                    required [(ngModel)]="loginObj.password" name="password"
+                    #password="ngModel" placeholder="Password" minlength="8">
+                    <span *ngIf="password.dirty" 
+                    [ngClass]="{'text-success': password.valid, 'text-danger': password.invalid}"
+                    class="input-append material-icons">
+                        {{ password.valid ? 'check' : 'info' }}
+                    </span>
+                </div>
+                <div *ngIf="password.dirty && password.invalid" class="text-danger">
+                    <small>Password is required.</small>
+                </div>
+            </div>
+            <div class="d-flex">
+                <button type="submit" 
+                [disabled]="loginForm.invalid"
+                class="btn btn-secondary px-5 mt-5 mx-auto"
+                >Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>  
