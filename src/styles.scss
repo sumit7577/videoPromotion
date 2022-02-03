@@ -1,0 +1,164 @@
+@import './assets/variables.scss';
+
+*, ::after, ::before{
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.5px;
+    overflow-x: hidden;
+}
+
+body{
+    font-size: 16px;
+    font-family: 'Titillium Web', cursive;
+    font-weight: 700;
+}
+
+h1,h2,h3,h4,h5, h6{
+    font-weight: 900;
+}
+
+[disabled]{
+    cursor: not-allowed;
+}
+
+/*CheckBox CSS Starts*/
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 2em;
+    // margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .check-mark:after {
+            display: block;
+        }
+    }
+    
+    /* Create a custom checkbox */
+    .check-mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1.5625em;
+        width: 1.5625em;
+        background-color: #eee;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        &:after {
+            left: 0.5625em;
+            top: 0.3125em;
+            // width: 0.3125em;
+            // height: 0.625em;
+            width: 0.4em;
+            height: 0.9em;
+            border: solid white;
+            border-width: 0 0.1875em 0.1875em 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover input ~ .check-mark {
+        background-color: #ccc;
+    }
+
+    input:checked ~ .check-mark {
+        background-color: #2196F3;
+    }
+  }
+/*CheckBox CSS Ends*/
+
+/*Custom Notification Alert Starts*/
+.customAlert{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    color: #000;
+    background-color: #fff;
+    position: fixed!important;
+    z-index: 999999;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);/* Safari 3.1 to 6.0 */
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transition: top 0.3s ease-out;
+    -webkit-transition: top 0.3s ease-out; /* Safari 3.1 to 6.0 */
+    -moz-transition: top 0.3s ease-out; // mozilla
+    -o-transition: top 0.3s ease-out; //opera
+    border-radius: 0;
+    border: none;
+    font-size: 0.875rem;
+    min-width: 75%;
+    button{
+        color: #000;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 400;
+        &:hover{
+            color: #000;
+        }
+        &:focus{
+            border: none;
+            outline: none;
+        }
+    }
+    p{
+        align-self: center;
+    }
+    >*{
+        padding: 0.7rem 0.5rem !important;
+    }
+    &::before{
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 1rem;
+        min-width: 3rem;
+        text-align: center;
+    }
+    &.success::before{
+        content: '✔';
+        background-color: #76cc76;
+    }
+    &.danger::before{
+        content: '☹';
+        background-color: #d16969;
+    }
+    &.warning::before{
+        content: '⚠';
+        background-color: #ffcc00;
+        color: #000;
+    }
+    &.info::before{
+        content: 'ǃ';
+        background-color: rgb(0, 140, 255)
+    }
+}
+/*Custom Notification Alert Ends*/
+
+@media (min-width: $min-lg-width){
+    .customAlert{
+        min-width: 30%;
+    }
+}

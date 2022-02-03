@@ -1,0 +1,142 @@
+@import '../../../assets/variables.scss';
+
+.tag-container{
+    overflow-y: auto;
+}
+
+.play-frame{
+    overflow: hidden;
+    position: relative;
+    &.potrait{
+        height: 90vh;
+        video{
+            height: 100%;
+        }    
+
+        .left-tag, .right-tag{
+            width: 17%;
+        }
+
+        .left-tag{
+            bottom: 15%;
+        }
+        .right-tag{
+            right: 5rem;
+        }
+
+        .right-tag{
+            top: 15%;
+        }
+        .second-icon{
+            right: 5rem;
+        }
+
+        .first-icon, .second-icon{
+            bottom: 0.5rem;
+            width: calc((100% - 3rem) / 6);
+    
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    &.landscape{
+        width: 100%;
+        video{
+            width: 100%;
+        }
+
+        .left-tag, .right-tag{
+            height: 25%;
+        }
+
+        .left-tag{
+            bottom: 3rem;
+        }
+
+        .right-tag{
+            top: 3rem;
+        }
+
+        .first-icon, .second-icon{
+            bottom: 0.5rem;
+            height: 2.5rem;
+    
+            img{
+                height: 100%;
+            }
+        }
+    }
+
+    .left-tag, .right-tag, .first-icon, .second-icon{
+        position: absolute;
+    }
+    
+    .left-tag{
+        left: 1rem;
+    }
+
+    .right-tag{
+        right: 1rem;
+    }
+
+    .first-icon{
+        left: 1rem;
+    }
+
+    .second-icon{
+        right: 1rem;
+    }
+}
+
+.col-6{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#myvideo{
+    height: 90%;
+    width: 100%;
+}
+
+.btn-preview{
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-preview:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+@media all and (min-width: $min-lg-width) {
+    .edit-container{
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .tag-container{
+        .content{
+            position: absolute;
+        }
+    }
+}

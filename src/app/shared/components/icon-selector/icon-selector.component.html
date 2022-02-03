@@ -1,0 +1,9 @@
+<div *ngIf="icons" class="icons">
+    <h6 *ngIf="title" class="mb-4">{{title}}</h6>
+    <div class="d-inline-block w-100">
+        <div class="icon p-3" [ngClass]="{'selected': selectedIcon===icon}"
+        *ngFor="let icon of icons" (click)="onIconClick(icon)">
+            <img [src]="icon" alt="icon">
+        </div>
+    </div>
+</div>
